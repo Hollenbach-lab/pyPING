@@ -1,2 +1,2 @@
 # pyPING
-delete this Wesley
+deleted
