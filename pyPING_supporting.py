@@ -1,6 +1,5 @@
 import pickle
 import os
-import urllib2
 import subprocess
 import time
 import pyPING_objects as ping

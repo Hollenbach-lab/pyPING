@@ -1,5 +1,4 @@
 import subprocess
-import urllib2
 import pyPING_supporting as support
 
 def bowtie2():

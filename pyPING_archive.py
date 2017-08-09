@@ -19,6 +19,7 @@ if(reference_updated):
 # ---------------------------------------
 
 # 8/8/17 ################################
+import urllib
 
 def reference_update(force=False):
     """Checks the IPD-KIR database version, if a new version is found, or if
@@ -71,6 +72,7 @@ def internet_check(url_to_check):
 # ---------------------------------------
 # pyPING_supporting.py archive
 # ---------------------------------------
+import urllib
 
 # 8/8/17 ################################
 
