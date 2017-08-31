@@ -3,8 +3,8 @@ import pyPING_checks as check
 import pyPING_supporting as support
 import os
 
-sample_location = '../RAW_SEQUENCES/'
-bowtie_threads = 4
+sample_location = '/home/common_arse/INDIGO/1_INDIGO_plates1-4_KIR_runs/INDIGO_1/'
+bowtie_threads = 8
 sequence_group = os.path.basename(os.path.normpath(sample_location))
 results_directory = ''
 
@@ -23,5 +23,5 @@ for sample in sample_list:
     sample.kir_extract(os.path.normpath('KIR_sequences/'), bowtie_threads)
     print(sample)
 
-for sample in sample_list:
-    sample.locus_align('2DL1', bowtie_threads)
+#for sample in sample_list:
+#    sample.locus_align('2DL1', bowtie_threads)

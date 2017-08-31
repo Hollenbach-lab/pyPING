@@ -18,10 +18,9 @@ class Sample:
         self.kir_path_fastq_1 = kir_path_fastq_1
         self.kir_path_fastq_2 = kir_path_fastq_2
         self.results_directory = results_directory
-        self.KIR_read_count = 0
-        self.KIR_2DL1_read_count = 0
         self.temp_file_directory = os.path.join(results_directory, 'TempRunFiles/')
 
+        self.counts = Counts()
         support.make_directory(self.temp_file_directory)
 
     def __repr__(self):
@@ -66,10 +65,29 @@ class Sample:
         self.kir_path_fastq_2=os.path.join(kir_extracted_path, self.name + '_KIR_2.fastq.gz')
 
         input_string = 'gunzip -c ' + self.kir_path_fastq_1 + ' | wc -l'
-        line_count = int(subprocess.check_output(input_string, shell=True))
+        line_count = int(subprocess.check_output(input_string, shell=True))/4
 
-        self.KIR_read_count = line_count
+        self.counts.read_count_total = line_count
 
     def locus_align(self, locus_to_align, bowtie_threads):
         if locus_to_align == "2DL1":
             locus.KIR_2DL1(self, bowtie_threads)
+            
+class Counts:
+    def __init__(self):
+        self.read_count_total = 0
+        self.read_count_2DL1 = 0
+        self.read_count_2DL23 = 0
+        self.read_count_2DL2 = 0
+        self.read_count_2DL3 = 0
+        self.read_count_2DL4 = 0
+        self.read_count_2DL5 = 0
+        self.read_count_2DP1 = 0
+        self.read_count_2DS35 = 0
+        self.read_count_2DS3 = 0
+        self.read_count_2DS4 = 0
+        self.read_count_3DL1 = 0
+        self.read_count_3DL2 = 0
+        self.read_count_3DL3 = 0
+        self.read_count_3DS1 = 0
+        
